@@ -12,14 +12,16 @@ public class main {
         ArrayList <Alumnos> alum1 = new ArrayList(); 
         
         
-        boolean fin = false;   
+        
+        boolean fin = false, activo = true;
         
         System.out.println("escoja administrativo(1) alumnos(2)  docente(3)");
         int option = sc.nextInt();
         
         switch (option){
             case 1:
-                while(!fin){                    
+                while(!fin){        
+                    //administrativo
                     System.out.println("ingrese tipo  de documento (String)");
                     String tipoDocumento = sc.next();
                     System.out.println("ingrese el documento (String)");
@@ -32,10 +34,8 @@ public class main {
                     int edad = sc.nextInt();
                     System.out.println("estado activo(1) inactivo(2)");
                     int des = sc.nextInt();
-                    if(des == 1){
-                        boolean activo = true;
-                    }else{
-                        boolean activo = false;
+                    if (des == 2){
+                        activo = false;
                     }
                     System.out.println("ingrese cargo (String)");
                     String cargo = sc.next();
@@ -46,10 +46,12 @@ public class main {
                     if(c == 2){
                         fin = true;
                     }
+                    admin1.add(new Administrativo(tipoDocumento, documento, appelido, nombre, edad, activo, cargo, fechaContrato));
                 }
-            break;
+                break;
             case 2:
-                while(!fin){                    
+                while(!fin){         
+                    //alumnos
                     System.out.println("ingrese tipo  de documento (String)");
                     String tipoDocumento = sc.next();
                     System.out.println("ingrese el documento (String)");
@@ -61,11 +63,9 @@ public class main {
                     System.out.println("ingrese edad (int)");
                     int edad = sc.nextInt();
                     System.out.println("estado activo(1) inactivo(2)");
-                    int des = sc.nextInt();
-                    if(des == 1){
-                        boolean activo = true;
-                    }else{
-                        boolean activo = false;
+                    int des = sc.nextInt();                                    
+                    if (des == 2){
+                        activo = false;
                     }
                     System.out.println("ingrese codigo (String)");
                     String codigo = sc.next();
@@ -80,8 +80,9 @@ public class main {
                     if(c == 2){
                         fin = true;
                     }
+                    alum1.add(new Alumnos(tipoDocumento, documento, appelido, nombre, edad, activo, codigo, facultad, programa, semestre));
                 }              
-            break;
+                break;
             case 3: 
                 System.out.println("ingrese catedratico(1) planta(2)");
                 int tDocente = sc.nextInt();
@@ -102,10 +103,8 @@ public class main {
                                 int edad = sc.nextInt();
                                 System.out.println("estado activo(1) inactivo(2)");
                                 int des = sc.nextInt();
-                                if(des == 1){
-                                    boolean activo = true;
-                                }else{
-                                    boolean activo = false;
+                                if (des == 2){
+                                    activo = false;
                                 }
                                 System.out.println("ingrese profesion (String)");
                                 String profesion = sc.next();
@@ -120,8 +119,9 @@ public class main {
                                 if(c == 2){
                                     fin = true;
                                 }
+                                cate1.add(new Catedratico(tipoDocumento, documento, appelido, nombre, edad, activo, profesion, asignatura, fechaInicio, fechaFin));
                             }                                                  
-                    break;
+                        break;
                     case 2:
                         ArrayList <Planta> planta1 = new ArrayList();
                             while(!fin){                    
@@ -137,10 +137,8 @@ public class main {
                                 int edad = sc.nextInt();
                                 System.out.println("estado activo(1) inactivo(2)");
                                 int des = sc.nextInt();
-                                if(des == 1){
-                                    boolean activo = true;
-                                }else{
-                                    boolean activo = false;
+                                if (des == 2){
+                                    activo = false;
                                 }
                                 System.out.println("Ingrese la profesion (String)");
                                 String profesion = sc.next();
@@ -155,6 +153,7 @@ public class main {
                                 if(c == 2){
                                     fin = true;
                                 }
+                                planta1.add(new Planta(tipoDocumento, documento, appelido, nombre, edad, activo, profesion, asignatura, fechaContrato, cantProyectos));
                             }               
                     break;    
                 }               
